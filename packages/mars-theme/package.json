@@ -1,0 +1,50 @@
+{
+  "_from": "@frontity/mars-theme@^1.4.3",
+  "_id": "@frontity/mars-theme@1.4.3",
+  "_inBundle": false,
+  "_integrity": "sha512-QGWjjP2GahdKFR7mzukrk967XJv//yztTQDf9jm5GBvGqvnSL82M94vyehqLaUX4Phu3YkDPB82pDB9H37SfXg==",
+  "_location": "/@frontity/mars-theme",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@frontity/mars-theme@^1.4.3",
+    "name": "@frontity/mars-theme",
+    "escapedName": "@frontity%2fmars-theme",
+    "scope": "@frontity",
+    "rawSpec": "^1.4.3",
+    "saveSpec": null,
+    "fetchSpec": "^1.4.3"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@frontity/mars-theme/-/mars-theme-1.4.3.tgz",
+  "_shasum": "1715680f24e076d4eaa6c38bab3f1c34d257561e",
+  "_spec": "@frontity/mars-theme@^1.4.3",
+  "_where": "C:\\dev\\portfolio",
+  "bugs": {
+    "url": "https://community.frontity.org"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "@frontity/components": "^1.3.3",
+    "@frontity/html2react": "^1.3.4",
+    "frontity": "^1.9.0"
+  },
+  "deprecated": false,
+  "description": "A starter theme for Frontity",
+  "homepage": "https://frontity.org",
+  "keywords": [
+    "frontity",
+    "frontity-theme"
+  ],
+  "license": "Apache-2.0",
+  "name": "@frontity/mars-theme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frontity/frontity.git"
+  },
+  "version": "1.4.3"
+}
