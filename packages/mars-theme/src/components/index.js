@@ -7,6 +7,7 @@ import Post from "./post";
 import Loading from "./loading";
 import Title from "./title";
 import PageError from "./page-error";
+import { useTransition, animated } from "react-spring"
 
 /**
  * Theme is the root React component of our theme. The one we will export
@@ -15,6 +16,12 @@ import PageError from "./page-error";
 const Theme = ({ state }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
+
+  const transitions = useTransition(state.router.link, null, {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0, display: "none" }
+  });
 
   return (
     <>
@@ -37,12 +44,16 @@ const Theme = ({ state }) => {
       {/* Add the main section. It renders a different component depending
       on the type of URL we are in. */}
       <Main>
-        <Switch>
-          <Loading when={data.isFetching} />
-          <List when={data.isArchive} />
-          <Post when={data.isPostType} />
-          <PageError when={data.isError} />
-        </Switch>
+        {transitions.map(({ props, key }) => (
+          <animated.div style={props} key={key}>
+            <Switch>
+              <Loading when={data.isFetching} />
+              <List when={data.isArchive} />
+              <Post when={data.isPostType} />
+              <PageError when={data.isError} />
+            </Switch> 
+          </animated.div>
+        ))}
       </Main>
     </>
   );
@@ -51,6 +62,9 @@ const Theme = ({ state }) => {
 export default connect(Theme);
 
 const globalStyles = css`
+  * {
+    box-sizing: border-box;
+  }
   body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -66,8 +80,11 @@ const globalStyles = css`
 const HeadContainer = styled.div`
   display: flex;
   align-items: center;
-  flex-direction: column;
-  background-color: #1f38c5;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: transparent;
+  position: absolute;
+  width: 100%;
 `;
 
 const Main = styled.div`
@@ -78,4 +95,7 @@ const Main = styled.div`
     rgba(66, 174, 228, 0.1),
     rgba(66, 174, 228, 0)
   );
+  >div {
+    width: 100%;
+  }
 `;

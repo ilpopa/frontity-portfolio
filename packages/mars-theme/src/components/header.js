@@ -23,7 +23,7 @@ const Header = ({ state }) => {
 export default connect(Header);
 
 const Container = styled.div`
-  width: 848px;
+  //width: 848px;
   max-width: 100%;
   box-sizing: border-box;
   padding: 24px;
